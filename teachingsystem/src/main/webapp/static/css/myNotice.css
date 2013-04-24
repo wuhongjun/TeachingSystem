@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+#mainBody{
+	background-color:#dbdbdb;
+	margin-left:124px;
+	width:1000px;
+	height:550px;
+	margin-top:15px;
+	padding-top:20px;
+}
+.courseList{
+	padding-top:25px;
+}
+.courseList ul{
+	list-style: none;
+}
+.topic{
+	height:30px;
+	font-weight: bold;
+}
+.notice{
+	height:60px;
+	text-indent: 15px;
+}
+.pagination{
+	margin-top:50px;
+}

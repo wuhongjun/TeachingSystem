@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="course">
+
+	<insert id="saveCourse" parameterType="com.nankai.teaching.model.Course"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into tb_course(
+		name,
+		user_id,
+		description,
+		created_time
+		) values(
+		#{name},
+		#{userId},
+		#{description},
+		#{createdTime}
+		)
+	</insert>
+
+	<insert id="saveCourseTypeRelation" parameterType="java.util.HashMap">
+		insert into
+		tb_course_type_relation(
+		course_id,
+		course_type_id
+		) values(
+		#{courseId},
+		#{typeId}
+		)
+	</insert>
+
+	<select id="countList" resultType="int" parameterType="java.util.HashMap">
+		<![CDATA[
+			select 
+				count(*)
+			from
+				tb_course c join
+				tb_course_type_relation ctr on c.id=ctr.course_id
+		]]>
+		<where>
+			<if test=" name != null and name != '' ">
+				and c.name like '%${name}%'
+			</if>
+			<if test=" typeId != null and typeId != '' ">
+				and ctr.course_type_id=#{typeId}
+			</if>
+		</where>
+	</select>
+
+	<select id="coursePageList" resultType="com.nankai.teaching.model.Course"
+		parameterType="java.util.HashMap">
+		<![CDATA[
+			select 
+				c.id,
+				c.name,
+				c.user_id as userId,
+				c.description,
+				c.created_time as createdTime
+			from
+				tb_course c join
+				tb_course_type_relation ctr on c.id=ctr.course_id
+		]]>
+		<where>
+			<if test=" name != null and name != ''">
+				and c.name like '%${name}%'
+			</if>
+			<if test=" typeId != null and typeId != ''">
+				and ctr.course_type_id=#{typeId}
+			</if>
+		</where>
+	</select>
+
+	<delete id="delete" parameterType="java.util.HashMap">
+		
+		<![CDATA[
+		delete
+			*
+		from
+			tb_course
+		]]>
+		where
+		id = #{courseId}
+	</delete>
+
+
+</mapper>

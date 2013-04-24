@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+	<!-- 查询 -->
+	<select id="equaleEmailList" resultType="com.nankai.teaching.model.User"
+		parameterType="java.util.HashMap">
+		<![CDATA[
+			select 
+				id,
+				name
+			from
+				tb_user
+			where
+				email = #{email}
+		]]>
+	</select>
+
+	<!-- 保存一个用户 -->
+	<insert id="saveUser" parameterType="com.nankai.teaching.model.User"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into tb_user(
+		name,
+		pwd,
+		email,
+		number
+		) values(
+		#{name},
+		#{pwd},
+		#{email},
+		#{number}
+		)
+	</insert>
+
+	<!--  保存一个用户角色关联 -->
+	<insert id="saveUserRole" parameterType="java.util.HashMap" >
+		insert into
+		tb_user_role_relation(
+		user_id,
+		role_id
+		) values(
+		#{userId},
+		#{roleId}
+		)
+	</insert>
+
+	<!--  更新用户的信息 -->
+	<update id="updateUser" parameterType="com.nankai.teaching.model.User">
+		update
+		tb_user
+		<set>
+			<if test=" name != null and name != ''">
+				name = #{name},
+			</if>
+			<if test=" pwd != null and pwd != ''">
+				pwd = #{pwd},
+			</if>
+			<if test=" email != null and email != ''">
+				email = #{email},
+			</if>
+			<if test=" number != null and number != ''">
+				number = #{number},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<select id="countList" resultType="int"
+		parameterType="com.nankai.teaching.model.User">
+		<![CDATA[
+			select 
+				count(*)
+			from
+				tb_user
+		]]>
+		<where>
+			<if test=" name != null and name != '' ">
+				and name like '%${name}%'
+			</if>
+			<if test=" email != null and email != '' ">
+				and email like '%${email}%'
+			</if>
+		</where>
+	</select>
+
+
+	<select id="userPageList" resultType="com.nankai.teaching.model.User"
+		parameterType="com.nankai.teaching.model.User">
+		<![CDATA[
+			select 
+				id,
+				name,
+				email,
+				number
+			from
+				tb_user
+		]]>
+		<where>
+			<if test=" name != null and name != '' ">
+				and name like '%${name}%'
+			</if>
+			<if test=" email != null and email != '' ">
+				and email like '%${email}%'
+			</if>
+		</where>
+	</select>
+
+	<select id="getUsersByRoleId" resultType="com.nankai.teaching.model.User"
+		parameterType="java.util.HashMap">
+		<![CDATA[
+			select 
+				u.id,
+				u.name,
+				u.email,
+				u.number
+			from
+				tb_user u
+				join tb_user_role_relation ur on u.id = ur.user_id
+		]]>
+		where
+		ur.role_id = #{roleId}
+	</select>
+
+	<delete id="deleteUserById" parameterType="java.util.HashMap">
+	<![CDATA[
+		delete
+			*
+		from
+			tb_user
+	]]>
+		where
+		id = #{userId}
+	</delete>
+</mapper>

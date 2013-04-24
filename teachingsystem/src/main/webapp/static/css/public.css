@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+body{
+	font-size:18px;
+}
+a:LINK{
+	text-decoration: none;
+	color: #0E0E47;
+}
+a:HOVER,a:VISITED{
+	color:#0E0E47;
+}
+#Container{
+	width:1000px;
+	margin:-10px auto;
+	height:120px;
+	background-color: #dbdbdb;
+}
+.navMenu{
+	background-color:#388e8e;
+	padding-left:50px;
+	padding-top:6px;
+	width:950px;
+	height:50px;
+	float:left;
+}
+.navMenu li{
+	list-style:none;
+	float:left;
+	width:140px;
+}

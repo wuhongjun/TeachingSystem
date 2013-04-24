@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+#mainBody{
+	background-color:#dbdbdb;
+	margin-left:124px;
+	width:1000px;
+	height:550px;
+	margin-top:15px;
+	padding-top:20px;
+}
+.courseList{
+	padding-top:40px;
+	padding-left:50px;
+}
+.courseList ul{
+	list-style: none;
+}
+.courseList li{
+	width:900px;
+	height:50px;
+}
+.number{
+	float:left;
+	width:200px;
+}
+.crsename{
+	float:left;
+	width:300px;
+}
+.pagination{
+	margin-top:280px;
+}

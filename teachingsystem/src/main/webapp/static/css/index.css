@@ -1,0 +1,59 @@
+@CHARSET "UTF-8";
+body{
+	font-size:18px;
+}
+#mainBody{
+	background-color:#dbdbdb;
+	margin-left:123px;
+	width:1000px;
+	margin-top:15px;
+}
+a:LINK,a:VISITED{
+	text-decoration: none;
+}
+a:HOVER{}
+#mainContent{
+	width:1000px;
+	margin-left:50px;
+}
+.recommend{
+	float:left;
+	width:595px;
+	height:300px;
+	border:1px solid #cccccc;
+}
+.recommend ul{
+	list-style-image: ;
+}
+.right{
+	margin-left:603px;
+	width:395px;
+	height:300px;
+	border:1px solid #cccccc;
+}
+#loginDiv{
+	padding:30px 40px;
+}
+#courseClassify{
+	border:1px solid #cccccc;
+	height:250px;
+	width:998px;
+}
+.courseList{
+	
+}
+.courseList h3{
+	text-align: center;
+}
+.courseList ul{
+	text-indent: 10px;
+}
+.courseList li{
+	list-style:none;
+	width:70px;
+	float:left;
+}
+
+
+
+

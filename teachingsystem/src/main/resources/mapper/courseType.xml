@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="courseType">
+	<insert id="save" parameterType="com.nankai.teaching.model.CourseType"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into tb_course_type(
+		name
+		) values(
+		#{name}
+		)
+	</insert>
+
+	<select id="countList" resultType="int"
+		parameterType="java.util.HashMap">
+		<![CDATA[
+			select 
+				count(*)
+			from
+				tb_course_type
+		]]>
+		<where>
+			<if test=" name != null and name != '' ">
+				and name like '%${name}%'
+			</if>
+		</where>
+	</select>
+
+
+	<select id="userPageList" resultType="com.nankai.teaching.model.CourseType"
+		parameterType="java.util.HashMap">
+		<![CDATA[
+			select 
+				id,
+				name
+			from
+				tb_course_type
+		]]>
+		<where>
+			<if test=" name != null and name != '' ">
+				and name like '%${name}%'
+			</if>
+		</where>
+	</select>
+</mapper>

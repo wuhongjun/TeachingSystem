@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--配置文件修改后自动重新加载-->
+<configuration scan="true" scanPeriod="60 seconds">
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%.-5level|%-40.40logger{0}|%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="info"/>
+
+    <logger name="org.springframework.beans" level="debug"/>
+
+    <logger name="org.springframework.test" level="debug"/>
+
+    <logger name="com.ibatis" level="debug"/>
+
+    <logger name="com.ibatis.common.jdbc.SimpleDataSource" level="debug"/>
+
+    <logger name="com.ibatis.common.jdbc.ScriptRunner" level="debug"/>
+
+	<!-- 记录用户的操作日志 -->
+	<logger name="datalog.filter.requestlog" level="error" />
+	
+	<!-- 记录业务日志 -->
+	<logger name="datalog.resume.log" level="info" />
+
+    <!--默认日志级别-->
+    <root level="trace">
+        <appender-ref ref="console"/>
+    </root>
+
+</configuration>
+
