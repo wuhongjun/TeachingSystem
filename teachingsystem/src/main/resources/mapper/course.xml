@@ -20,6 +20,22 @@
 		)
 	</insert>
 
+	<select id="recent" resultType="com.nankai.teaching.model.Course">
+		<![CDATA[
+			select 
+				c.id,
+				c.name,
+				c.user_id as userId,
+				c.created_time as createdTime,
+				u.name as username
+			from
+				tb_course c join tb_user u on c.user_id=u.id
+			order by id desc
+			limit 4
+		]]>
+	</select>
+
+
 	<insert id="saveCourseTypeRelation" parameterType="java.util.HashMap">
 		insert into
 		tb_course_type_relation(

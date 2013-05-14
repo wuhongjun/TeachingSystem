@@ -7,15 +7,19 @@ import com.nankai.teaching.model.User;
 
 public interface UserService {
 
-	public boolean checkUserEmail(String email);
+	boolean checkUserEmail(String email);
 	
-	public boolean saveUserAndRole(User user, String[] roles);
+	boolean checkUser(User user);
 	
-	public boolean updateUser(User user) ;
+	boolean saveUserAndRole(User user, String[] roles);
 	
-	public Pagination<User> getUsers(User user, int pageIndex, int pageSize);
+	boolean updateUser(User user) ;
 	
-	public List<User> getUsersByRoleId(int roleId);
+	Pagination<User> getUsers(User user, int pageIndex, int pageSize);
 	
-	public boolean deleteUser(int userId);
+	List<User> getUsersByRoleId(int roleId);
+	
+	boolean deleteUser(int userId);
+	
+	User getUserByEmail(String email);
 }

@@ -54,4 +54,12 @@ public class CourseTypeServiceImpl extends BaseService implements CourseTypeServ
 		return pageTypes;
 	}
 
+	/**
+	 * 获取最近的四个课程类型
+	 */
+	public List<CourseType> getRecentCourseTypes() {
+		List<CourseType> courseTypes = getGenericBaseDAO().executeForObjectList("courseType.recent", null);
+		return courseTypes;
+	}
+
 }

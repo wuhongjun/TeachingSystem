@@ -10,13 +10,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.nankai.teaching.common.utils.AuthCode;
 import com.nankai.teaching.common.utils.Pagination;
+import com.nankai.teaching.model.Course;
+import com.nankai.teaching.model.CourseType;
+import com.nankai.teaching.model.Message;
 import com.nankai.teaching.model.User;
+import com.nankai.teaching.service.CourseService;
+import com.nankai.teaching.service.CourseTypeService;
+import com.nankai.teaching.service.MessageService;
 import com.nankai.teaching.service.UserService;
 
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/user")
@@ -25,14 +32,59 @@ public class UserController {
 	@Resource
 	private UserService userServiceImpl;
 	
+	@Resource
+	private CourseService courseServiceImpl;
+	
+	@Resource
+	private CourseTypeService courseTypeServiceImpl;
+	
+	@Resource
+	private MessageService messageServiceImpl;
+	
 	@RequestMapping("/login")
-	public ModelAndView login(){
+	public ModelAndView login(User user,@RequestParam(value="authCode",required=false)String authCode,HttpServletRequest request){
 		System.out.println("进来了！");
-		List<User> users = userServiceImpl.getUsersByRoleId(1);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user");
-		mav.addObject("tea","green");
-		mav.addObject("users", users);
+		List<CourseType> recentCourseTypes = courseTypeServiceImpl.getRecentCourseTypes();
+		List<Course> recentCourses = courseServiceImpl.getRecentCourses();
+		mav.addObject("recentCourseTypes", recentCourseTypes);
+		mav.addObject("recentCourses", recentCourses);
+		mav.setViewName("login");
+		
+		HttpSession session = request.getSession();
+		User xuser = (User)session.getAttribute("tuser");
+		//判断是不是已登录
+		if(xuser != null){
+			user = userServiceImpl.getUserByEmail(user.getEmail());
+			mav.addObject("user", xuser);
+			List<Message> recentMessages = messageServiceImpl.getRecentMessage(xuser.getId());
+			mav.addObject("recentMessages", recentMessages);
+			mav.setViewName("logined");
+			return mav;
+		}
+		
+		if(authCode == null){
+			mav.addObject("erro", "验证码不可以为空！");
+		}else{
+			
+			String code = (String)session.getAttribute("RANDOMVALIDATECODEKEY");
+			if(authCode.equalsIgnoreCase(code)){
+				boolean has = userServiceImpl.checkUser(user);
+				if(has == true){
+					user = userServiceImpl.getUserByEmail(user.getEmail());
+					mav.addObject("user", user);
+					session.setAttribute("tuser", user);
+					List<Message> recentMessages = messageServiceImpl.getRecentMessage(user.getId());
+					mav.addObject("recentMessages", recentMessages);
+					mav.setViewName("logined");
+				}else{
+					mav.addObject("erro", "用户名或者密码不正确！");
+				}
+			}else{
+				mav.addObject("erro", "验证码不正确！");
+			}
+		}
+		
 		return mav;
 	}
 	
@@ -85,6 +137,5 @@ public class UserController {
 		AuthCode auth = new AuthCode();
 		auth.getRandcode(request, response);
 	}
-	
 	
 }

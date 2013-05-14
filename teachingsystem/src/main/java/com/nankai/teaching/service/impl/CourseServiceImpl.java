@@ -83,5 +83,10 @@ public class CourseServiceImpl extends BaseService implements CourseService{
 		}
 		return true;
 	}
+
+	public List<Course> getRecentCourses() {
+		List<Course> courses = getGenericBaseDAO().executeForObjectList("course.recent", null);
+		return courses;
+	}
 	
 }

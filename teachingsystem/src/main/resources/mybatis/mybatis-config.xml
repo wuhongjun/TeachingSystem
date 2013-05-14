@@ -11,6 +11,7 @@
 		<mapper resource="mapper/course.xml"/>
 		<mapper resource="mapper/column.xml"/>
 		<mapper resource="mapper/courseType.xml"/>
+		<mapper resource="mapper/message.xml"/>
 	</mappers>
 
 </configuration> 

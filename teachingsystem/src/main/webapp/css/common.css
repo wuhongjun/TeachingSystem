@@ -1,23 +1,44 @@
 #topDiv {
-	background-repeat: repeat-x;
 	position: absolute;
-	height: 91px;
-	width: 1366px;
-	left: -1px;
+	height: 72px;
+	width: 1087px;
+	left: 129px;
 	top: 2px;
-}
-#topDiv {
-}
-#topDiv {
 	font-family: "宋体";
 	font-size: 36px;
 	font-style: normal;
 	line-height: normal;
-	background-color: #00CC00;
 }
 #topDiv #title {
 	font-family: "宋体";
 	font-size: 36px;
 	font-style: normal;
 	font-weight: bold;
+}
+#topDiv #title {
+	position: relative;
+	height: auto;
+	width: auto;
+	top: auto;
+}
+#topDiv #userInfo #username {
+	font-family: "宋体";
+	font-size: 18px;
+}
+#topDiv #userInfo {
+	float: right;
+	width: 300px;
+}
+#topDiv #userInfo a {
+	font-family: "新宋体";
+	font-size: 24px;
+}
+#topDiv #userInfo a {
+	font-size: 24px;
+}
+#topDiv #userInfo a {
+	font-size: 18px;
+}
+#topDiv #userInfo #logout {
+	float: right;
 }

@@ -136,4 +136,22 @@ public class UserServiceImpl extends BaseService implements UserService{
 		return true;
 	}
 
+	public boolean checkUser(User user) {
+		
+		int count = getGenericBaseDAO().executeForObject("user.checkUser", user, Integer.class);
+		if(count != 1){
+			return false;
+		}else{
+			return true;
+		}
+		
+	}
+
+	public User getUserByEmail(String email) {
+		Map<String, String> params = Maps.newHashMap();
+		params.put("email", email);
+		User user = getGenericBaseDAO().executeForObject("user.getUserByEmail", params, User.class);
+		return user;
+	}
+
 }

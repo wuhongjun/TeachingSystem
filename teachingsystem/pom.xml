@@ -21,6 +21,14 @@
 	</repositories>
 
 	<dependencies>
+		
+		<dependency>
+			<groupId>com.qunar.base</groupId>
+			<artifactId>qunit-core</artifactId>
+			<version>1.0.3-SNAPSHOT</version>
+			<scope>test</scope>
+		</dependency>
+
 
 		<dependency>
 			<groupId>junit</groupId>

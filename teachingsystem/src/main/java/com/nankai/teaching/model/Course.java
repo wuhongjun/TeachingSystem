@@ -7,9 +7,16 @@ public class Course {
 	int id;
 	String name;
 	int userId;
+	String username;
 	String description;
 	Date createdTime;
 	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	public int getId() {
 		return id;
 	}
