@@ -1,0 +1,150 @@
+#recentCourseType {
+	position: absolute;
+	visibility: visible;
+	height: 350px;
+	width: 669px;
+	top: 90px;
+	left: 130px;
+}
+#recentCourseType #recentCourseTypeTitle {
+	position: relative;
+	left: 40px;
+	top: 20px;
+}
+#recentCourseType #courseTypeMore {
+	position: relative;
+	visibility: visible;
+	top: 20px;
+	left: 400px;
+}
+#recentCourseType #recentCourseTypeTabel {
+	position: relative;
+	height: 300px;
+	width: 600px;
+	left: 40px;
+	top: 30px;
+}
+#userLogin {
+	position: absolute;
+	height: 350px;
+	width: 300px;
+	left: 903px;
+	top: 90px;
+}
+#userLogin #email1 {
+	position: relative;
+	left: 50px;
+	top: 50px;
+	width: 40px;
+}
+#userLogin #email {
+	position: relative;
+	top: 65px;
+	height: 25px;
+	left: 50px;
+	width: 200px;
+	visibility: visible;
+}
+#userLogin #pwd1 {
+	position: relative;
+	left: 50px;
+	top: 80px;
+	width: 40px;
+}
+#userLogin #pwd {
+	position: relative;
+	top: 95px;
+	height: 25px;
+	left: 50px;
+	width: 200px;
+	visibility: visible;
+}
+#userLogin #authCode1 {
+	position: relative;
+	left: 50px;
+	top: 110px;
+	width: 60px;
+}
+#userLogin #authCode {
+	position: relative;
+	top: 125px;
+	height: 25px;
+	left: 50px;
+	width: 80px;
+	visibility: visible;
+}
+#userLogin #authCodeImg {
+	position: relative;
+	height: 25px;
+	left: 50px;
+	top: 130px;
+}
+
+#userLogin #login {
+	position: relative;
+	height: 25px;
+	left: 40px;
+	top: 160px;
+	width:40;
+}
+
+#userLogin #erroMessage {
+	position: relative;
+	height: 25px;
+	top: 200px;
+	left:50px;
+}
+
+#recentMessage {
+	position: absolute;
+	height: 350px;
+	width: 368px;
+	left: 835px;
+	top: 90px;
+}
+
+#recentMessage #recentMessageTitle{
+	position: relative;
+	left: 40px;
+	top: 20px;
+}
+
+#recentMessage #recentMessageMore{
+	position: relative;
+	left: 200px;
+	top: 20px;
+}
+
+#recentMessage #recentMessagesTable{
+	position: relative;
+	left: 40px;
+	top: 30px;
+	height: 300px;
+	width: 300px;
+}
+
+#recentCourse {
+	position: absolute;
+	height: 330px;
+	width: 1065px;
+	top: 500px;
+	left:130px;
+}
+#recentCourse #recentCourseTitle {
+	position: relative;
+	left: 40px;
+	top: 20px;
+}
+
+#recentCourse #courseMore {
+	position: relative;
+	left: 800px;
+	top: 20px;
+}
+#recentCourse #courseTable {
+	position: relative;
+	left: 40px;
+	top: 40px;
+	height: 250px;
+	width: 1000px;
+}

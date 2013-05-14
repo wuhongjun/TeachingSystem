@@ -1,0 +1,14 @@
+#allMessage{
+	position: absolute;
+	visibility: visible;
+	width: 669px;
+	top: 90px;
+	left: 330px;
+}
+
+#allMessage #messagesTable{
+	position: relative;
+	width: 600px;
+	top: 20px;
+	left: 34px;
+}
