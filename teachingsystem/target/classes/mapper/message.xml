@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="message">
+        
+        <select id="recent" parameterType="java.util.HashMap" resultType="com.nankai.teaching.model.Message">
+        <![CDATA[
+        	select
+	        	m.id,
+	        	m.title
+	        from
+	        	tb_message m join tb_course_user_relation cur on m.course_id = cur.course_id
+        ]]>
+        	where
+        		cur.user_id = #{userId}
+        	order by m.id desc
+			limit 4
+        </select>
+        
+        <select id="all" parameterType="java.util.HashMap" resultType="com.nankai.teaching.model.Message">
+        <![CDATA[
+        	select
+	        	m.id,
+	        	m.title
+	        from
+	        	tb_message m join tb_course_user_relation cur on m.course_id = cur.course_id
+        ]]>
+        	where
+        		cur.user_id = #{userId}
+        	order by m.id desc
+        </select>
+        
+        <select id="detail" parameterType="java.util.HashMap" resultType="com.nankai.teaching.model.Message">
+        <![CDATA[
+        	select
+	        	m.id,
+	        	m.title,
+	        	m.course_id as courseId,
+	        	m.content,
+	        	m.created_time as createdTime,
+	        	c.name as coursename
+	        from
+	        	tb_message m 
+	        	join tb_course c on m.course_id=c.id
+        ]]>
+        	where
+        		m.id = #{id}
+        </select>
+        
+</mapper>

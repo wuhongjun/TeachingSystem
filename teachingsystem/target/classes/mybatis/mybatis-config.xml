@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="useGeneratedKeys" value="true" />
+	</settings>
+	<mappers>
+		<mapper resource="mapper/user.xml" />
+		<mapper resource="mapper/course.xml"/>
+		<mapper resource="mapper/column.xml"/>
+		<mapper resource="mapper/courseType.xml"/>
+		<mapper resource="mapper/message.xml"/>
+	</mappers>
+
+</configuration> 
+    
