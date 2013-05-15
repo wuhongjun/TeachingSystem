@@ -1,0 +1,14 @@
+#allCourseTypes{
+	position: absolute;
+	visibility: visible;
+	width: 669px;
+	top: 90px;
+	left: 330px;
+}
+
+#allCourseTypes #courseTypesTable{
+	position: relative;
+	width: 600px;
+	top: 20px;
+	left: 34px;
+}
