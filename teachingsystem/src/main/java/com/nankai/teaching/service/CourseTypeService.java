@@ -10,5 +10,6 @@ public interface CourseTypeService {
 	boolean saveCourseType(CourseType courseType);
 	Pagination<CourseType> getCourseTypes(String name, int pageIndex, int pageSize);
 	List<CourseType> getRecentCourseTypes();
+	List<CourseType> getAllCourseTypes();
 
 }

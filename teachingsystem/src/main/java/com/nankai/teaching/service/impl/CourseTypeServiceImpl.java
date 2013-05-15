@@ -62,4 +62,10 @@ public class CourseTypeServiceImpl extends BaseService implements CourseTypeServ
 		return courseTypes;
 	}
 
+	@Override
+	public List<CourseType> getAllCourseTypes() {
+		List<CourseType> courseTypes = getGenericBaseDAO().executeForObjectList("courseType.all", null);
+		return courseTypes;
+	}
+
 }

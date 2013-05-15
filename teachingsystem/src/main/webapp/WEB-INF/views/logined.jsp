@@ -28,7 +28,7 @@
 	</div>
 	<div id="recentCourseType">
 
-		<a id="recentCourseTypeTitle">最新课程分类</a> <a id="courseTypeMore">more..</a>
+		<a id="recentCourseTypeTitle">最新课程分类</a> <a id="courseTypeMore" href="/handler/courseType/all">more..</a>
 		<table width="200" border="1" id="recentCourseTypeTabel">
 			<tr>
 				<td align="center">课程分类编号</td>
